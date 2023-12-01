@@ -1,0 +1,140 @@
+openapi: 3.0.3
+info:
+  title: Swagger NUAWI TEST
+  description: |-
+    Swagger documenting test backend for full stack developer
+  contact:
+    email: luisbtcreative@gmail.com
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: user
+    description: Operations about user
+paths:
+  /user:
+    get:
+      tags:
+        - user
+      summary: view all user
+      description: Endpoint to see users
+      operationId: viewAllUser
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+        tags:
+          - user
+        summary: Create user
+        description: Endpoint to create user
+        operationId: createUser
+        responses:
+          default:
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/User'
+  /task:
+    get:
+      tags:
+        - task
+      summary: view all task
+      description: Endpoint to see task
+      operationId: viewTask
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+    post:
+        tags:
+          - task
+        summary: Create task
+        description: Endpoint to create task
+        operationId: createTask
+        responses:
+          default:
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Task'
+  /task/{id}:
+    put:
+      tags:
+        - task
+      summary: update task by id
+      description: Endpoint to update task
+      operationId: updateTask
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Task'
+    delete:
+      tags:
+        - task
+      summary: delete task by id
+      description: Endpoint to delete task
+      operationId: deleteTask
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Task'
+    
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+          format: int64
+          example: 'Luis Torres'
+        password:
+          type: string
+          example: 'sda23d'
+        email:
+          type: string
+          example: 'luis@gmail.com'
+    Task:
+      type: object
+      properties:
+        id:
+          type: int
+          format: int64
+          example: 1
+        title:
+          type: string
+          example: 'Playing soccer'
+        state:
+          type: string
+          example: 'NO COMPLETED'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
