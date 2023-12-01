@@ -7,7 +7,7 @@
     "start:dev": "nodemon - exec 'ts-node' ./source/index.ts",
     "test": "jest",
     "build": "tsc && cp ./swagger.yaml ./build",
-    "start": "pnpm run build && ls"
+    "start": "npm run build && ls"
   },
   "keywords": [],
   "author": "",
