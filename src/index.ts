@@ -7,13 +7,14 @@ import { setup, serve } from "swagger-ui-express";
 import { NextFunction, Request, Response } from "express";
 import { TaskView } from "./views/task.view";
 import { IndexView } from "./views/index.view";
+import { MoviesView } from "./views/movies.view";
 
 config();
 
 export async function main() {
   await yamlHandler();
   const server = createExpressServer({
-    controllers: [IndexView, UserView, TaskView],
+    controllers: [IndexView, UserView, TaskView, MoviesView],
     classTransformer: false,
     validation: {
       always: false,

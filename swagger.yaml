@@ -44,6 +44,22 @@ paths:
               application/json:
                 schema:
                   $ref: '#/components/schemas/User'
+  /movies:
+    get:
+      tags:
+        - movies
+      summary: view all movies
+      description: Endpoint to see movies
+      operationId: getMovies
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Movie'
   /task:
     get:
       tags:
@@ -120,6 +136,8 @@ components:
         email:
           type: string
           example: 'luis@gmail.com'
+    Movie:
+      type: object
     Task:
       type: object
       properties:
