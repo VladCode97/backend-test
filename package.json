@@ -6,9 +6,8 @@
   "scripts": {
     "start:dev": "nodemon - exec 'ts-node' ./source/index.ts",
     "test": "jest",
-    "install": "npm install",
     "build": "tsc && cp ./swagger.yaml ./build",
-    "start": "npm run install && npm run build && ls"
+    "start": "npm run build && ls"
   },
   "keywords": [],
   "author": "",
