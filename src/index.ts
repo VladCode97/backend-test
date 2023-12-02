@@ -6,13 +6,14 @@ import { yamlHandler } from "./utils/handler/yaml.handler";
 import { setup, serve } from "swagger-ui-express";
 import { NextFunction, Request, Response } from "express";
 import { TaskView } from "./views/task.view";
+import { IndexView } from "./views/index.view";
 
 config();
 
 export async function main() {
   await yamlHandler();
   const server = createExpressServer({
-    controllers: [UserView, TaskView],
+    controllers: [IndexView, UserView, TaskView],
     classTransformer: false,
     validation: {
       always: false,
